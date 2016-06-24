@@ -59,23 +59,16 @@ public class PhotoViewFragment extends Fragment {
             e.printStackTrace();
         }
         mCurrentPosition = position;
-
     }
 
     public static Bitmap getImageFromURL(String url) throws MalformedURLException, IOException {
-
             URL newurl = new URL(url);
             return BitmapFactory.decodeStream(newurl.openConnection().getInputStream());
-
-
-
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-
-
         outState.putInt(ARG_POSITION, mCurrentPosition);
     }
 
