@@ -22,11 +22,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        // YOU NEED YOUR OWN API INFO IF YOU WANT TO COMPILE
         HashMap<String, String> config = new HashMap<>();
-        config.put("applicationId", "your_appid");
-        config.put("secret", "your_secret");
-        config.put("callbackUrl", "urn:ietf:wg:oauth:2.0:oob");
+        config.put("applicationId", ApiInfo.API_APPID);
+        config.put("secret", ApiInfo.API_SECRET);
+        config.put("callbackUrl", ApiInfo.API_CALLBACK);
         Unsplash.getInstance().init(config);
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
