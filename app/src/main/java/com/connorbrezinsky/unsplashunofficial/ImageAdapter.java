@@ -10,6 +10,8 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.github.rye761.unsplash.Photo;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,12 +19,14 @@ import java.net.URL;
 public class ImageAdapter extends BaseAdapter {
     private Context mContext;
 
+
+
     public ImageAdapter(Context c) {
         mContext = c;
     }
 
     public int getCount() {
-        return photos.length;
+        return Photo.all().length;
     }
 
     public Object getItem(int position) {
@@ -49,22 +53,21 @@ public class ImageAdapter extends BaseAdapter {
 
 
             try {
-                imageView.setImageBitmap(getImageFromURL(photos[position]));
+                imageView.setImageBitmap(getImageFromURL(Photo.all()[position].urls.thumb));
             }catch (IOException e){
                 e.printStackTrace();
             }
+
+
+
+
+
         return imageView;
     }
 
-    // references to our images
-    public static String[] photos = {
-            "https://source.unsplash.com/category/nature/800x600"
-            ,"https://source.unsplash.com/category/nature/800x600"
-            ,"https://source.unsplash.com/category/nature/800x600"
-            ,"https://source.unsplash.com/category/nature/800x600"
-            ,"https://source.unsplash.com/category/nature/800x600"
-            ,"https://source.unsplash.com/category/nature/800x600"
-    };
+    public static String[] photos;
+
+
 
     public static Bitmap getImageFromURL(String url) throws MalformedURLException, IOException {
 

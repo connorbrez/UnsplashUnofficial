@@ -4,12 +4,15 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.0"
 
+
     defaultConfig {
         applicationId "com.connorbrezinsky.unsplashunofficial"
         minSdkVersion 16
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+
+
     }
     buildTypes {
         release {
