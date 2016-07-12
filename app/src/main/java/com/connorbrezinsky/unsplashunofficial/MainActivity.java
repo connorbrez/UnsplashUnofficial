@@ -1,12 +1,16 @@
 package com.connorbrezinsky.unsplashunofficial;
 
 import android.os.StrictMode;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.ViewFlipper;
 
 import com.github.rye761.unsplash.Photo;
@@ -33,11 +37,17 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
 
 
-        GridView gridview = (GridView) findViewById(R.id.gridview);
+        final GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
 
         final ViewFlipper vf = (ViewFlipper) findViewById(R.id.viewflipper);
         final ImageView photo = (ImageView) findViewById(R.id.photo);
+
+        final String[] navigationItems = getResources().getStringArray(R.array.navigation_items);
+        final DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        final ListView drawerList = (ListView) findViewById(R.id.left_drawer);
+
+        //drawerList.setAdapter(new ArrayAdapter<String>(this, R.layout.))
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,

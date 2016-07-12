@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Photos</string>
+    <array name="navigation_items">
+        <item>Featured</item>
+        <item>New</item>
+    </array>
 </resources>
